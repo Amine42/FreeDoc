@@ -14,13 +14,17 @@ Appointement.destroy_all
 City.destroy_all
 
 18.times do
- user = Doctor.create!(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, zip_code: Faker::Number.number(5),specialty: Faker::Lorem.words(6))
+ user = Doctor.create!(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, zip_code: Faker::Address.zip_code,specialty: Faker::Lorem.words(6))
 end
 
 41.times do
-  client = Patient.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,)
+  client = Patient.create!(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,)
 end
 
 89.times do
- rdv = Appointement.create(date: Faker::Date.backward(200))
+ rdv = Appointement.create!(date: Faker::Date.backward(200))
+end
+
+20.times do
+    ville = City.create!(city: Faker::Address.street_suffix)
 end

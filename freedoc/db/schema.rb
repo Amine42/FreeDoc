@@ -16,13 +16,16 @@ ActiveRecord::Schema.define(version: 2019_01_31_165927) do
     t.datetime "date"
     t.integer "doctor_id"
     t.integer "patient_id"
+    t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_appointements_on_city_id"
     t.index ["doctor_id"], name: "index_appointements_on_doctor_id"
     t.index ["patient_id"], name: "index_appointements_on_patient_id"
   end
 
   create_table "cities", force: :cascade do |t|
+    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
