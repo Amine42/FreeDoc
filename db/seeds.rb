@@ -22,7 +22,7 @@ end
 end
 
 89.times do
- rdv = Appointement.create!(date: Faker::Date.backward(200))
+ rdv = Appointement.create!(date: Faker::Time.between(2.days.ago, Date.today, :all))
 end
 
 20.times do
