@@ -21,16 +21,16 @@ end
   client = Patient.create!(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,)
 end
 
- # on fait 10 touts de boucles
-
-10.times do
-  # on remplis la table appointement avec des donnee cree par faker
- rdv = Appointement.create!(date: Faker::Time.between(2.days.ago, Date.today, :all))
-end
-
 # on fait 10 touts de boucles
 
 10.times do 
   # on remplis la table city avec des donnee cree par faker
-    ville = City.create!(city: Faker::Address.street_suffix)
+  ville = City.create!(city: Faker::Address.city)
+end
+
+# on fait 10 touts de boucles
+
+10.times do
+  # on remplis la table appointement avec des donnee cree par faker
+ rdv = Appointement.create!(date: Faker::Time.between(2.days.ago, Date.today, :all),doctor_id: rand((Doctor.first.id)..(Doctor.last.id)),patient_id: rand((Patient.first.id)..(Patient.last.id)),city_id: rand((City.first.id)..(City.last.id)))
 end
